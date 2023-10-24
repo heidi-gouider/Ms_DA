@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CatalogueController!{% endblock %}
+
+{% block body %}
+<main class="container">
+    <div class="row">
+        {% for categorie in tableau %}
+            <div class="col-md-6 mb-4 mt-4">
+                <div class="card" style="width: 18rem; background: rgba(255, 255, 255, 0.8);">
+
+                    <a href="{{ path('app_categories', {'id': categorie.id}) }}">
+                        <img class="card-img-top mx-auto" src="{{ asset('IMG/category/' ~ categorie.image) }}" alt="{{ categorie.libelle }}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ categorie.libelle }}</h5>
+                        {# Vous pouvez ajouter d'autres informations ici si nécessaire #}
+                    </div>
+                </div>
+            </div>
+            {# Si vous avez affiché 2 cartes, fermez la rangée actuelle et commencez une nouvelle rangée #}
+            {% if loop.index is even %}
+                </div><div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
