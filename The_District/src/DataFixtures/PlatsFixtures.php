@@ -17,7 +17,7 @@ class PlatsFixtures extends Fixture
         foreach ($categorie as $catData){
             $categorieDB = new Categorie();
             $categorieDB
-            ->setId($catData['categorie_id'])
+            ->setId($catData['id'])
             ->setLibelle($catData['libelle'])
             ->setImage($catData['image'])
             ->setActive($catData['active']);
@@ -40,7 +40,7 @@ class PlatsFixtures extends Fixture
             ->setImage($platData['image'])
             ->setActive($platData['active']);
 // j'obtient la catégorie correspondante à partir de l'Id spécifié dans $platData['categorie_id']
-            $categorie = $categorieRepo->find($platData['categorie_id']);
+            $categorie = $categorieRepo->find($platData['id_categorie']);
             $platDB->setCategorie($categorie);
 
             $manager->persist($platDB);

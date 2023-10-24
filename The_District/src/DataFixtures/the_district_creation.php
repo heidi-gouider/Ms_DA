@@ -34,22 +34,22 @@ $commande = array(
 
 /* `the_district_creation`.`plat` */
 $plat = array(
-  array('id' => '4','libelle' => 'District Burger','description' => 'Burger composé d’un bun’s du boulanger, deux steaks de 80g (origine française), de deux tranches poitrine de porc fumée, de deux tranches cheddar affiné, salade et oignons confits. .','prix' => '8.00','image' => 'hamburger.jpg','categorie_id' => '5','active' => 'Yes'),
-  array('id' => '5','libelle' => 'Pizza Bianca','description' => 'Une pizza fine et croustillante garnie de crème mascarpone légèrement citronnée et de tranches de saumon fumé, le tout relevé de baies roses et de basilic frais.','prix' => '14.00','image' => 'pizza-salmon.png','categorie_id' => '4','active' => 'Yes'),
-  array('id' => '9','libelle' => 'Buffalo Chicken Wrap','description' => 'Du bon filet de poulet mariné dans notre spécialité sucrée & épicée, enveloppé dans une tortilla blanche douce faite maison.','prix' => '5.00','image' => 'buffalo-chicken.webp','categorie_id' => '9','active' => 'Yes'),
-  array('id' => '10','libelle' => 'Cheeseburger','description' => 'Burger composé d’un bun’s du boulanger, de salade, oignons rouges, pickles, oignon confit, tomate, d’un steak d’origine Française, d’une tranche de cheddar affiné, et de notre sauce maison.','prix' => '8.00','image' => 'cheesburger.jpg','categorie_id' => '5','active' => 'Yes'),
-  array('id' => '12','libelle' => 'Spaghetti aux légumes','description' => 'Un plat de spaghetti au pesto de basilic et légumes poêlés, très parfumé et rapide','prix' => '10.00','image' => 'spaghetti-legumes.jpg','categorie_id' => '10','active' => 'Yes'),
-  array('id' => '13','libelle' => 'Salade César','description' => 'Une délicieuse salade Caesar (César) composée de filets de poulet grillés, de feuilles croquantes de salade romaine, de croutons à l\'ail, de tomates cerise et surtout de sa fameuse sauce Caesar. Le tout agrémenté de copeaux de parmesan.','prix' => '7.00','image' => 'cesar_salad.jpg','categorie_id' => '13','active' => 'Yes'),
-  array('id' => '14','libelle' => 'Pizza Margherita','description' => 'Une authentique pizza margarita, un classique de la cuisine italienne! Une pâte faite maison, une sauce tomate fraîche, de la mozzarella Fior di latte, du basilic, origan, ail, sucre, sel & poivre...','prix' => '14.00','image' => 'pizza-margherita.jpg','categorie_id' => '4','active' => 'Yes'),
-  array('id' => '15','libelle' => 'Courgettes farcies au quinoa et duxelles de champignons','description' => 'Voici une recette équilibrée à base de courgettes, quinoa et champignons, 100% vegan et sans gluten!','prix' => '8.00','image' => 'courgettes_farcies.jpg','categorie_id' => '14','active' => 'Yes'),
+  array('id' => '4','libelle' => 'District Burger','description' => 'Burger composé d’un bun’s du boulanger, deux steaks de 80g (origine française), de deux tranches poitrine de porc fumée, de deux tranches cheddar affiné, salade et oignons confits. .','prix' => '8.00','image' => 'hamburger.jpg','id_categorie' => '5','active' => 'Yes'),
+  array('id' => '5','libelle' => 'Pizza Bianca','description' => 'Une pizza fine et croustillante garnie de crème mascarpone légèrement citronnée et de tranches de saumon fumé, le tout relevé de baies roses et de basilic frais.','prix' => '14.00','image' => 'pizza-salmon.png','id_categorie' => '4','active' => 'Yes'),
+  array('id' => '9','libelle' => 'Buffalo Chicken Wrap','description' => 'Du bon filet de poulet mariné dans notre spécialité sucrée & épicée, enveloppé dans une tortilla blanche douce faite maison.','prix' => '5.00','image' => 'buffalo-chicken.webp','id_categorie' => '9','active' => 'Yes'),
+  array('id' => '10','libelle' => 'Cheeseburger','description' => 'Burger composé d’un bun’s du boulanger, de salade, oignons rouges, pickles, oignon confit, tomate, d’un steak d’origine Française, d’une tranche de cheddar affiné, et de notre sauce maison.','prix' => '8.00','image' => 'cheesburger.jpg','id_categorie' => '5','active' => 'Yes'),
+  array('id' => '12','libelle' => 'Spaghetti aux légumes','description' => 'Un plat de spaghetti au pesto de basilic et légumes poêlés, très parfumé et rapide','prix' => '10.00','image' => 'spaghetti-legumes.jpg','id_categorie' => '10','active' => 'Yes'),
+  array('id' => '13','libelle' => 'Salade César','description' => 'Une délicieuse salade Caesar (César) composée de filets de poulet grillés, de feuilles croquantes de salade romaine, de croutons à l\'ail, de tomates cerise et surtout de sa fameuse sauce Caesar. Le tout agrémenté de copeaux de parmesan.','prix' => '7.00','image' => 'cesar_salad.jpg','id_categorie' => '13','active' => 'Yes'),
+  array('id' => '14','libelle' => 'Pizza Margherita','description' => 'Une authentique pizza margarita, un classique de la cuisine italienne! Une pâte faite maison, une sauce tomate fraîche, de la mozzarella Fior di latte, du basilic, origan, ail, sucre, sel & poivre...','prix' => '14.00','image' => 'pizza-margherita.jpg','id_categorie' => '4','active' => 'Yes'),
+  array('id' => '15','libelle' => 'Courgettes farcies au quinoa et duxelles de champignons','description' => 'Voici une recette équilibrée à base de courgettes, quinoa et champignons, 100% vegan et sans gluten!','prix' => '8.00','image' => 'courgettes_farcies.jpg','id_categorie' => '14','active' => 'Yes'),
   array('id' => '16','libelle' => 'Lasagnes','description' => 'Découvrez notre recette des lasagnes, l\'une des spécialités italiennes que tout le monde aime avec sa viande hachée et gratinée à l\'emmental. Et bien sûr, une inoubliable béchamel à la noix de muscade.
 
 ','prix' => '12.00','image' => 'lasagnes_viande.jpg
-','categorie_id' => '10','active' => 'Yes'),
+','id_categorie' => '10','active' => 'Yes'),
   array('id' => '17','libelle' => 'Tagliatelles au saumon','description' => 'Découvrez notre recette délicieuse de tagliatelles au saumon frais et à la crème qui qui vous assure un véritable régal!  
 
 ','prix' => '12.00','image' => 'tagliatelles_saumon.webp
-','categorie_id' => '10','active' => 'Yes')
+','id_categorie' => '10','active' => 'Yes')
 );
 
 /* `the_district_creation`.`utilisateur` */
