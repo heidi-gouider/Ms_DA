@@ -33,7 +33,7 @@ class Plat
 
     #[ORM\ManyToOne(inversedBy: 'plats')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?categorie $categorie = null;
+    private ?Categorie $categorie = null;
 
     #[ORM\OneToMany(mappedBy: 'plat', targetEntity: Detail::class)]
     private Collection $details;

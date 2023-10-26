@@ -17,10 +17,10 @@ class Detail
     private ?int $quantite = null;
 
     #[ORM\ManyToOne(inversedBy: 'details')]
-    private ?plat $plat = null;
+    private ?Plat $plat = null;
 
     #[ORM\ManyToOne(inversedBy: 'details')]
-    private ?commande $commande = null;
+    private ?Commande $commande = null;
 
     public function getId(): ?int
     {

@@ -1,20 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CatalogueController!{% endblock %}
+{% block title %}The District
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="row video-container">
+		<div class="fst-italic" id="titre-accueil">
+			<h1>The District</h1>
+		</div>
+		<!-- barre de recherche -->
+	</form>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<form class="search-form d-flex justify-content-center" id="search-bar">
+		<input type="text" id="search-input" placeholder="Rechercher...">
+		<button class="btn text-light bg-dark" type="submit">
+			<i class="bi bi-search"></i>
+		</button>
+		<!-- <div id="suggestions"></div> -->
+	</form>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/stagiaire/Bureau/Ms_DA/The_District/src/Controller/CatalogueController.php'|file_link(0) }}">src/Controller/CatalogueController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/stagiaire/Bureau/Ms_DA/The_District/templates/catalogue/index.html.twig'|file_link(0) }}">templates/catalogue/index.html.twig</a></code></li>
-    </ul>
+	<video
+		controls="controls" class="" loop="loop" autoplay="autoplay" muted>
+		<!-- <video controls="controls" class="controls video-fluid" loop="loop" autoplay="autoplay" muted> -->
+		{# <source src="public/VIDEO/video2.mp4"> #}
+        		<source src="{{ asset('public/VIDEO/video2.mp4')}}">
+
+	</video>
 </div>
-{% endblock %}
+
+<main class="container mt-4">
+	<div class="row">
+		{% for categorie in categories %}
+			<div class="col-md-6 mb-4">
+				<div class="card" id="images" style="width: 18rem;">
+					<img src="{{ asset('IMG/category/' ~ categorie.image) }}" alt="{{ categorie.libelle }}">
+					<div class="card-body">
+						<h5 class="card-title">{{ categorie.libelle }}></h5>
+					</div>
+				</div>
+			</div>
+			{# $count++; // Incrémentez le compteur
+			            // Si vous avez affiché 2 disques, fermez la rangée actuelle et commencez une nouvelle rangée
+			            if ($count % 2 == 0) {
+			                echo '</div><div class="row">';
+			            } #}
+			{% if loop.index is even %}
+			</div>
+			<div class="row">
+			{% endif %}
+		{% endfor %}
+	</div>
+</main>{% endblock %}

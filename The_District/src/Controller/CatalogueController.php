@@ -22,8 +22,13 @@ class CatalogueController extends AbstractController
     #[Route('/', name: 'app_accueil')]
     public function index(): Response
     {
+        $categories = $this->categorieRepo->findAll();
+        dump($categories);
+
         return $this->render('catalogue/index.html.twig', [
-            'controller_name' => 'CatalogueController',
+            // 'controller_name' => 'CatalogueController'
+            'categories' => $categories
+
         ]);
     }
 
