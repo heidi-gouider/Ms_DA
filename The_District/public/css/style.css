@@ -1,0 +1,644 @@
+/* Penser à faire des captures d'écran des pages pour les
+intégrer au READ ME */
+@import "~bootstrap/scss/bootstrap";
+/* Les liens internes et externes seront différenciés
+Utiliser la pseudo classe focus pour les utilisateurs qui naviguent au clavier
+-> tab : l'élément passe en surbrillance par exemple */
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+
+* {
+  font-family: "Libre Baskerville", serif !important;
+  /* box-shadow: 0 0 2px red; */
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  background: none;
+}
+
+/* ////////////// VARIABLES POUR LES COULEURS /////////////// */
+
+/* Les couleurs */
+
+html {
+  --bordeau: #970646;
+  --bordeauFonce: #a1115971;
+  --grisClair: #535d65;
+  --gris: #bdc4ca;
+  --grisFonce: #242629;
+  --fondClair: #e2e2e2;
+  --black: #000;
+}
+/* .custom-title {
+  color: white; 
+} */
+
+/* -------------------------------------------------------------------------------------------------------------- */
+/* LE HEADER INCLU DANS TOUTES LES PAGES  */
+
+/* penser à ajouter une 'box-shadow' au bottom de la .nav et voir pour le bg 
+vérifier s'il n'est pas plus judicieux de nommer des classes perso au cas où il y aurait pls nav hors le header*/
+
+#menu {
+  height: 15vh;
+  background-color: rgba(226, 226, 226, 0.7);
+  box-shadow: 0px 5px 10px #42031f;
+  z-index: 2;
+  /* opacity: 0.5; */
+  /* box-shadow: 0 10px 10px black; */
+}
+
+.nav-link {
+  font-size: 25px;
+  color: var(--grisClair);
+  /* transition: color 1s; */
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--bordeau) !important;
+}
+
+.nav-link-custom:hover {
+  transform: scale(1.1);
+  transition: 0.6s;
+  /* color: var(--fondClair); */
+  color: var(--bordeau) !important;
+}
+
+.nav #link-active {
+  /* .nav-link:active { */
+  color: var(--bordeau) !important;
+  /* text-decoration: none; */
+}
+
+.logo img {
+  box-shadow: 1px 5px 5px 3px #42031f;
+}
+
+.btn-command {
+  height: 30px;
+  color: var(--bordeau) !important;
+  border-color: var(--bordeau);
+  box-shadow: 1px 5px 5px 3px #42031f;
+  transition: 0.2s;
+}
+
+.btn-command:hover,
+.btn-command:focus,
+.btn-command:active {
+  color: white;
+  background-color: var(--gris);
+}
+
+.bi-list {
+  font-size: 1.5rem;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  /* border-color: #dc3545; */
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  /* border-color: #28a745; */
+}
+
+/* CSS personnalisé pour agrandir l'icône du panier en version mobile */
+.btn-icon-large {
+  font-size: 24px; /* Taille de police personnalisée */
+}
+
+/* ------------------------------------------------------------------------------------------------------------ *
+
+/* SECTION RECHERCHE AVEC VIDEO EN FOND  */
+
+.video-container {
+  height: 30vh;
+  margin-top: 15vh;
+  /* position: relative; */
+}
+
+/* video ::before {
+  content: "";
+} */
+/* background-color: rgba(0, 0, 0, 0.5); */
+/* .video::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #970646;
+  background: linear-gradient(#970646, #4d0918);
+  z-index: 3;
+} */
+
+.video-container video {
+  height: 100%;
+  position: relative;
+  object-fit: cover;
+  opacity: 0.9;
+  /* z-index: 1; */
+  cursor: pointer;
+  /* background-color: var(--grisFonce); */
+} 
+
+/********* Titre & Barre de recherche **********/
+#titre-accueil {
+  padding-top: 2%;
+  position: absolute;
+  z-index: 1;
+  text-shadow: 5px 5px 10px black !important;
+}
+
+.search-bar {
+  padding-top: 10%;
+  position: absolute;
+  z-index: 1;
+}
+
+#search-bar {
+  padding-top: 10%;
+  position: absolute;
+  z-index: 1;
+}
+
+/* créer un évennement pause et play au clik
+si l'utilisateur ne veut plus que la vidéo joue */
+
+/* .controls {
+    display: none;
+} */
+
+/* .overlay {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+} */
+
+/* #pause {
+  position: absolute;
+  padding: 20% 5% 0 0;
+  z-index: 2;
+} */
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/*  PAGE ACCEUIL GRILLE  */
+
+#images img {
+  /* height: 200px; */
+  transition: transform 2s;
+  border: var(--grisFonce) solid 1px;
+  /* border-radius: 10%; */
+  box-shadow: 10px 10px 10px var(--grisClair);
+  object-fit: cover;
+}
+
+/* revoir les animations pour un effet plus doux sur la disparition de la bordure */
+#images img:hover {
+  transform: scale(1.1);
+  /* translate: 1s; */
+  border: none;
+  transition: 1s ease-in-out;
+  /* border-radius: 50%; */
+}
+/* .cookie-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cookie-content {
+  display: inline-block;
+}
+
+.cookie-button {
+  margin: 5px;
+  text-decoration: none;
+  background-color: #0073e6;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+} */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/*  ANIMATION */
+@keyframes move-titre {
+  from {
+    margin-left: 0;
+    font-size: x-small;
+  }
+
+  25% {
+    font-size: 0.5rem;
+  }
+
+  50% {
+    font-size: 1rem;
+  }
+
+  75% {
+    font-size: 1.5rem;
+  }
+
+  to {
+    margin-left: 70%;
+    /* font-style: normal; */
+    font-size: 2rem;
+  }
+}
+
+/* animation mobile */
+@keyframes move-titre-mobile {
+  from {
+    margin-left: 0;
+    font-size: x-small;
+  }
+
+  25% {
+    font-size: 0.5rem;
+  }
+
+  50% {
+    font-size: 1rem;
+  }
+
+  75% {
+    font-size: 1.5rem;
+  }
+
+  to {
+    margin-left: 50%;
+    /* font-style: normal; */
+    font-size: 2rem;
+  }
+}
+
+/* je choisie un effet parallax simple en css et non pas une librairie qui sera trop lourde pour cette animation simple */
+
+/* Appliquer l'animation à tous les titres h1 */
+h1 {
+  animation: move-titre 1s ease-in-out both;
+  z-index: 1;
+  color: white;
+  padding-top: 5%;
+}
+
+/* Styles pour les écrans de petite taille (mobiles) */
+@media (max-width: 767px) {
+  h1 {
+    text-align: center;
+    /* Centrer le titre sur les mobiles */
+    margin-left: 0;
+    /* Annuler la marge à gauche pour les mobiles */
+    font-size: 1.5rem;
+    /* Taille de police pour les mobiles */
+    animation: move-titre-mobile 1s ease-in-out both;
+    /* Appliquer l'animation mobile */
+  }
+}
+
+/* h1::after {
+  content: "";
+  height: 0.2rem;
+  transform: translateY(2.2rem);
+  background-color: var(--black);
+} */
+
+/* h1 .titre {
+  border-bottom: solid 2px #000;
+} */
+
+/* h1 .titre::after {
+  content: "";
+  transform: translateY(1rem);
+  background-color: var(--black);
+} */
+
+/* **** page accueil  **** */
+
+/* @keyframes move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(38%);
+  }
+}
+
+#titre-accueil {
+  animation: move 2s ease-out both;
+}
+
+#search-bar {
+  animation: move 2s ease-out .7s both;
+} */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/*  PAGE CATEGORY   */
+
+/* ******** page catégory */
+.contenu {
+  margin-top: 15vh;
+  min-height: 100vh;
+  background-image: url("/The_District/public/IMG/fond/bg3.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: 1;
+  /* filter: blur(5px); */
+}
+
+/* .contenu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/dist/assets/bg3.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: 0;
+  filter: blur(5px); 
+} */
+
+/*carousel ************* */
+section {
+  min-height: 100vh;
+  background-image: url("/public/IMG/fond/bg3.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  stroke-width: 5;
+  background-color: rgba(36, 38, 41, 0.9);
+}
+
+/* background-attachment: scroll; */
+/* .category ::before {
+  content: "";
+} */
+
+/* .category::after{
+  background-color: #000;
+} */
+.carousel {
+  width: 80%;
+  min-height: 60vh;
+  background-color: rgba(36, 38, 41, 0.4);
+  z-index: 2;
+  /* cursor: pointer; */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  transition: 1s linear;
+}
+
+.carousel-item .image-container {
+  position: relative;
+}
+
+.carousel img {
+  object-fit: cover;
+  width: calc(100% / 3) !important;
+}
+
+.carousel img:first-child {
+  margin-left: 0px !important;
+}
+
+.carousel-caption {
+  position: absolute;
+  /* top: 50%;
+  left: 50%; */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  overflow-y: auto;
+  /* width: 80%; */
+  max-width: 200px;
+  max-height: 250px;
+}
+
+/* .custom-scrollbar{
+  width: 0;
+  height: 0;
+} */
+/* .zoomed-item {
+  transform: scale(1.1);
+}
+
+.carousel-item img {
+  transition: transform 0.3s ease-in-out;
+} */
+
+/* .boutton span {
+  border-radius: 50%;
+} */
+.commande:hover {
+  /* font-style: var(--black)!important; */
+  background-color: #28a745 !important;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/*  PAGE PLATS   */
+
+/* .card-header {
+  position: relative;
+} */
+
+.card-header button {
+  /* z-index: 1; */
+  position: absolute;
+}
+
+/* ******** page commande  ************* */
+
+/* :animation sur le btn 'submit' */
+/* @keyframes joke1 {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-150px);
+  }
+} */
+
+/* @keyframes joke1 {
+  from {
+    transform: translate(-150px, 70%);
+
+  }
+
+  to {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-150px);
+  }
+
+} */
+
+/* .btn-joke {
+  animation: joke 1s ease-in-out 1s 3; */
+/* nom/durée/fonction-d'accélération/top-départ/ nb-répet-anim/ itération(normale ou inverse)/ animation-fill-mode (avec delay)? je test pour voir */
+/* } */
+
+/* .btn-joke:hover {
+  animation: joke1 0.5s linear 0.5s 3 slidein;
+  transform: translate(-150px, 70%);
+  transform: rotate(45deg);
+  animation-timing-function: ;
+} */
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/*  PAGE FORMULAIRE  */
+
+#formulaire {
+  background-color: rgba(36, 38, 41, 0.6);
+}
+
+#formulaire label {
+  color: #e2e2e2;
+  /* background-color: rgba(178, 181, 187, 0.3); */
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/*  PAGE commande  */
+
+.btn-commande {
+  height: 30px;
+
+  position: absolute;
+  bottom: 0;
+
+  color: var(--bordeau) !important;
+  background-color: var(--gris);
+  border-color: var(--bordeau);
+  box-shadow: 1px 5px 5px 3px #42031f;
+  transition: 0.2s;
+}
+
+.btn-commande:hover,
+.btn-commande:focus,
+.btn-commande:active {
+  color: white;
+  background-color: var(--gris);
+}
+
+.bg-white {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/*  PAGE modal mon_compte  */
+
+/* #openModalButton {
+
+} */
+/* Style pour le modal */
+/* .modale {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+} */
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/*  LE FOOTER  */
+
+.footer {
+  bottom: 0;
+  background-color: #f8f9fa;
+  opacity: 0.9;
+}
+
+.footer ul {
+  margin-bottom: 0;
+}
+
+.footer ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer ul li:last-child {
+  margin-right: 0;
+}
+
+.footer ul li a {
+  color: #212529;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.footer ul li a:hover {
+  color: #007bff;
+}
+
+/* .link-external i:hover{
+afficher le nom en texte du lien
+} */
+
+/* ////////////////menu déroulant mobile/////////// */
+@media (max-width: 767px) {
+  .collapse.navbar-collapse {
+      background-color: rgba(226, 226, 226, 0.7); /* Ajoutez votre couleur de fond ici */
+      box-shadow: 0px 5px 10px #42031f; /* Conservez votre ombre si nécessaire */
+  }
+}

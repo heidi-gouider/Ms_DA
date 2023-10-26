@@ -56,4 +56,20 @@ class CatalogueController extends AbstractController
             'categories' => $categories
         ]);
     }
+
+    #[Route('/plats/{categorie_id}', name: 'app_plats_categorie')]
+    public function platsCategorie(int $categorie_id, CategorieRepository $categorieRepo): Response
+    {
+        // je récupère la categorie correspondant à l'id
+        $categorie = $this->categorieRepo->find($categorie_id);
+        dump($categorie);
+
+        $plats = $categorie->getPlats();
+        return $this->render('catalogue/platsCategorie.html.twig', [
+            // 'controller_name' => 'CatalogueController',
+            'categories' => $categorie,
+            'plats' => $plats,
+        ]);
+    }
+
 }
