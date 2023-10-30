@@ -354,7 +354,7 @@ h1 {
 .contenu {
   margin-top: 15vh;
   min-height: 100vh;
-  background-image: url("/The_District/public/IMG/fond/bg3.jpeg");
+  background-image: url("./IMG/fond/bg3.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
