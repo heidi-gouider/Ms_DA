@@ -19,12 +19,24 @@ class ContactFormType extends AbstractType
             ->add('prenom')
             ->add('email')
             ->add('telephone')
-            ->add('message')
-            // ->add('jaccepte les conditions dutilisation', CheckboxType::class, ['mapped' => false])
+            ->add(
+                'message',
+                TextareaType::class,
+                [
+                    'label' => 'Votre message',
+                ]
+            )
+            // ->add(
+            //     'jaccepte les conditions dutilisation',
+            //     CheckboxType::class,
+            //     [
+            //         'mapped' => false,
+            //     ]
+            // )
+
             ->add('save', SubmitType::class, [
-                'label' => 'Envoyer' 
-            ])
-        ;
+                'label' => 'Envoyer'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

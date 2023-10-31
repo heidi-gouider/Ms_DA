@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ContactRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -20,6 +22,9 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
+    #[Assert\Email(
+        message: 'Format  email invalide.',
+    )]
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
@@ -108,4 +113,12 @@ class Contact
 
         return $this;
     }
+
+    // j'ajoute des contraintes de validation
+    // public static function loadValidatorMetadata(ClassMetadata $metadata): void
+    // {
+    //     $metadata->addPropertyConstraint('email', new Assert\Email([
+    //         'message' => '"{{ value }}" Format mail invalide.',
+    //     ]));
+    // }
 }
