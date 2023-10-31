@@ -30,7 +30,7 @@ class ContactController extends AbstractController
 
             // Récupération des propriétés de l'entité Contact
             $address = $contact->getEmail();
-            $subject = $contact->getObjet();
+            // $subject = $contact->getObjet();
             $content = $contact->getMessage();
             // $content = 'objet : ' . $contact->getObjet() . "\n";
             // $content .= 'message : ' . $contact->getMessage();
@@ -39,7 +39,7 @@ class ContactController extends AbstractController
             $email = (new Email())
                 ->from($address)
                 ->to('admin@admin.com')
-                ->subject('demande de contact')
+                ->subject('salut')
                 ->text($content);
 
             // dd($email);

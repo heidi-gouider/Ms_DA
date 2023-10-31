@@ -23,6 +23,23 @@
 							<button type="button" class=" d-block mt-5 btn btn-secondary mx-auto" data-bs-toggle="modal" data-bs-target="#modal{{ plat.id }}">Ajouter au panier
 								<i class="bi bi-basket"></i>
 							</button>
+							{# test bouttons d'ajout #}
+							<div class="card-footer">
+                                {# <form action="{{ path('ajout_panier', {'id': plat.id}) }}" method="post"> #}
+                                    {# <div class="d-flex justify-content-between">
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-secondary" name="action" value="add">+</button>
+                                            <button type="submit" class="btn btn-secondary" name="action" value="remove">-</button>
+                                        </div>
+                                        <input type="number" name="quantite" value="1" min="1" max="10">
+                                    </div> #}
+                                {# </form> #}
+								 <div class="d-flex justify-content-between">
+                                    <button class="btn btn-secondary bg-danger quantity-button" data-plat-id="{{ plat.id }}" data-action="decrement">-</button>
+                                    <input  name="quantite" value="1" min="1" max="10" class="quantity-input col-2 text-center" data-plat-id="{{ plat.id }}">
+                                    <button class="btn btn-secondary bg-success quantity-button" data-plat-id="{{ plat.id }}" data-action="increment">+</button>
+                                </div>
+                            </div>
 						</div>
 					</div>
 
