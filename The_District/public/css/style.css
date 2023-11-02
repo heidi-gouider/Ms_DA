@@ -1,6 +1,6 @@
 /* Penser à faire des captures d'écran des pages pour les
 intégrer au READ ME */
-@import "~bootstrap/scss/bootstrap";
+/* @import "~bootstrap/scss/bootstrap"; */
 /* Les liens internes et externes seront différenciés
 Utiliser la pseudo classe focus pour les utilisateurs qui naviguent au clavier
 -> tab : l'élément passe en surbrillance par exemple */
@@ -354,7 +354,7 @@ h1 {
 .contenu {
   margin-top: 15vh;
   min-height: 100vh;
-  background-image: url("/The_District/public/IMG/fond/bg3.jpeg");
+  background-image: url("IMG/fond/bg3.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -519,6 +519,29 @@ section {
 /* ------------------------------------------------------------------------------------------------------------ */
 
 /*  PAGE FORMULAIRE  */
+
+/* Styles for custom form inputs */
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styles for form errors */
+.form-error {
+  color: red;
+}
+
+/* Styles for the submit button */
+/* .btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} */
 
 #formulaire {
   background-color: rgba(36, 38, 41, 0.6);

@@ -1,32 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}Créer un compte
 {% endblock %}
 
 {% block body %}
-	<div class="contenu">
-		<h1 class="fst-italic">Inscription</h1>
-		<div class="container">
 
+	<div class="contenu" style="background-image:url('{{ asset('IMG/fond/bg1.jpeg') }}')" >
 
+		<h2 class="fst-italic text-black text-end">Inscription</h2>
+
+		<div class="container mx-auto text-white" id="formulaire">
 			{{ form_errors(registrationForm) }}
 
 			{{ form_start(registrationForm) }}
-			{{ form_row(registrationForm.email) }}
-			{{ form_row(registrationForm.plainPassword, {
+
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.email, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.plainPassword, {'attr': {'class': 'custom-input'},
             label: 'Password'
         }) }}
-			{{ form_row(registrationForm.nom) }}
-			{{ form_row(registrationForm.prenom) }}
-			{{ form_row(registrationForm.telephone) }}
-			{{ form_row(registrationForm.adresse) }}
-			{{ form_row(registrationForm.cp) }}
-			{{ form_row(registrationForm.ville) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.nom, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.prenom, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.telephone, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.adresse, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.cp, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.ville, {'attr': {'class': 'custom-input'}}) }}
+			</div>
 
-			{{ form_row(registrationForm.agreeTerms) }}
+			{{ form_row(registrationForm.RGPDConsent) }}
 
-			<button type="submit" class="btn">Je m'inscrit</button>
+			<button type="submit" class="btn btn-primary btn-lg text-white mt-5">Je m'inscrit</button>
 			{{ form_end(registrationForm) }}
 		</div>
 	</div>
+		{% include "partials/footer.php" %}
+
 {% endblock %}

@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="contenu">
+	<div class="contenu" style="background-image:url('{{ asset('IMG/fond/bg3.jpeg') }}')" >
 		<h1 class="row col-12 fst-italic">Nos
 			{{ categories.libelle}}</h1>
 		<!-- <a href="add_form.php" class="btn btn-primary float-end">Ajouter</a> -->
@@ -75,4 +75,6 @@
 			</div>
 		</main>
 	</div>
+    	{% include "partials/footer.php" %}
+
 {% endblock %}

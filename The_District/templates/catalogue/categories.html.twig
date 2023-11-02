@@ -4,7 +4,8 @@
 {% endblock %}
 
 {% block body %}
-	<div class="contenu">
+
+	<div class="contenu" style="background-image:url('{{ asset('IMG/fond/bg3.jpeg') }}')" >
 		<h1 class="fst-italic">Notre carte</h1>
 		<main class="container">
 			<div class="row">
@@ -30,4 +31,5 @@
 			</div>
 		</main>
 	</div>
+		{% include "partials/footer.php" %}
 {% endblock %}

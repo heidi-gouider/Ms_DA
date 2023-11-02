@@ -1,7 +1,7 @@
 <!-- require est utilisé lorsque l'inclusion du fichier est obligatoire et générera une erreur fatale en cas d'échec,
 -----include est utilisé lorsque l'inclusion du fichier est facultative et générera un avertissement en cas d'échec. -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="/dist/assets/index.css"> 
     <link rel="stylesheet"type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-</head>
+</head> -->
 
 <body>
     <nav class="navbar navbar-expand-lg search-bar">

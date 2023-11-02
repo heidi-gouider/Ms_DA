@@ -1,25 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon Profil{% endblock %}
+{% block title %}Mon Profil
+{% endblock %}
 
 {% block body %}
-<div class="container">
-        <div class="row mt-5">
-            <div class="col-sm-8 offset-sm-2">
-                <h1>Vos informations</h1>
-                <table class="table table-light table-hover">
-                    <thead>
-                    <tr>
-                        <th>Email</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>{{ informations.email }}</td>
-                    </tr>
-                    </tbody>
-                </table>
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-sm-8 offset-sm-2">
+				<h1>Vos informations</h1>
+				<table class="table table-light table-hover">
+					<thead>
+						<tr>
+							<th>Email</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{ informations.email }}</td>
+						</tr>
+					</tbody>
+				</table>
 
-            </div>
-        </div>
-    </div>{% endblock %}
+			</div>
+		</div>
+	</div>
+	{% include "partials/footer.php" %}
+{% endblock %}

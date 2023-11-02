@@ -3,7 +3,7 @@
  * Export to PHP Array plugin for PHPMyAdmin
  * @version 5.1.1deb5ubuntu1
  */
-
+class the_district_creation {}
 /**
  * Database `the_district_creation`
  */

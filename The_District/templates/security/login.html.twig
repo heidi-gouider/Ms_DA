@@ -21,7 +21,7 @@
 					</div>
 				{% endif %}
 
-				<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+				<h2 class="h3 mb-3 font-weight-normal">J'ai déjà un compte</h2>
 				<label for="inputEmail">Email</label>
 				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
 				<label for="inputPassword" class="mt-5">Mot de passe</label>
@@ -32,9 +32,13 @@
 				<button class="btn btn-lg btn-primary my-4" type="submit">
 					Me connecté
 				</button>
+				<button class="btn btn-lg btn-primary my-4" type="submit">
+					Oups! mot de passe oublié
+				</button>
+
 			</form>
 
-			<div class="text-center">
+			<div class="text-center mt-5">
 				<h3 class="text-center custom-title">Je n'ai pas encore de compte
 				</h3>
 				<a class="btn btn-primary rounded-0 mt-3 align-items-center text-nowrap" href="{{ path('app_register') }}">
@@ -42,5 +46,5 @@
 			</div>
 		</div>
 	</div>
-
+	{% include "partials/footer.php" %}
 {% endblock %}
