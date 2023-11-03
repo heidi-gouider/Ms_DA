@@ -45,8 +45,8 @@ security:
         - { path: ^/commande, roles: ROLE_CLIENT }
 
     role_hierarchy:
-        ROLE-ADMIN: [ROLE_USER, ROLE-CHEF]
-        ROLE_CHEF: ROLE_USER
+        ROLE_ADMIN: [ROLE_CLIENT, ROLE-CHEF]
+        ROLE_CHEF: ROLE_CLIENT
         ROLE_CLIENT: ROLE_USER
 
 when@test:

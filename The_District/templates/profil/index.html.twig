@@ -12,11 +12,16 @@
 					<thead>
 						<tr>
 							<th>Email</th>
+							 <th colspan="2">Rôles</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>{{ informations.email }}</td>
+							{# Les rôles sont un tableau, il nous faire une boucle :#}
+                        {% for role in informations.roles %}
+                          <td>{{ role }}</td>
+                        {% endfor %}
 						</tr>
 					</tbody>
 				</table>
@@ -24,5 +29,7 @@
 			</div>
 		</div>
 	</div>
+	{{ dump(app.user.roles) }}
+
 	{% include "partials/footer.php" %}
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+
+{% endblock %}
+
+{% block body %}
+    <div class="error-card">
+        <h1>Erreur {{ status_code }}</h1>
+        <p>Erreur, Vos droit utilisateurs ne vous donne pas acces à cette partie du site, veuillez retourner
+            sur cette page : <a href="{{ path('app_accueil') }}">Accueil</a>.</p>
+    </div>
+{% endblock %}
+ 
