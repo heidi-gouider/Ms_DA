@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="contenu" style="background-image:url('{{ asset('IMG/fond/bg3.jpeg') }}')" >
+	<div class="contenu" style="background-image:url('{{ asset('IMG/fond/bg3.jpeg') }}')">
 		<h1 class="row col-12 fst-italic">Nos
 			{{ categories.libelle}}</h1>
 		<!-- <a href="add_form.php" class="btn btn-primary float-end">Ajouter</a> -->
@@ -15,66 +15,75 @@
 						<div class="card" style="width: 18rem;">
 							<img src="{{ asset('IMG/food/' ~ plat.image) }}" alt="{{ plat.libelle }}">
 							<div class="card-body">
-								<h5 class="card-title"> {{ plat.libelle }}</h5>
+								<h5 class="card-title">
+									{{ plat.libelle }}</h5>
 								<p class="card-text">
 									{{ plat.description}}</p>
-								<p class="content bg-body"> {{ plat.prix}}</p>
+								<p class="content bg-body">
+									{{ plat.prix}}</p>
 							</div>
-							<button type="button" class=" d-block mt-5 btn btn-secondary mx-auto" data-bs-toggle="modal" data-bs-target="#modal{{ plat.id }}">Ajouter au panier
-								<i class="bi bi-basket"></i>
-							</button>
-							{# test bouttons d'ajout #}
-							<div class="card-footer">
-                                {# <form action="{{ path('ajout_panier', {'id': plat.id}) }}" method="post"> #}
-                                    {# <div class="d-flex justify-content-between">
-                                        <div class="btn-group">
-                                            <button type="submit" class="btn btn-secondary" name="action" value="add">+</button>
-                                            <button type="submit" class="btn btn-secondary" name="action" value="remove">-</button>
-                                        </div>
-                                        <input type="number" name="quantite" value="1" min="1" max="10">
-                                    </div> #}
-                                {# </form> #}
-								 <div class="d-flex justify-content-between">
-                                    <button class="btn btn-secondary bg-danger quantity-button" data-plat-id="{{ plat.id }}" data-action="decrement">-</button>
-                                    <input  name="quantite" value="1" min="1" max="10" class="quantity-input col-2 text-center" data-plat-id="{{ plat.id }}">
-                                    <button class="btn btn-secondary bg-success quantity-button" data-plat-id="{{ plat.id }}" data-action="increment">+</button>
-                                </div>
-                            </div>
+
+							<div class="card-footer mt-2">
+								<form action="{{ path('panier_ajouter', {'id': plat.id}) }}" method="post">
+									{# <div class="d-flex justify-content-between">
+																<div class="btn-group">
+																<button type="submit" class="btn btn-secondary" name="action" value="add">+</button>
+																<button type="submit" class="btn btn-secondary" name="action" value="remove">-</button>
+																</div>
+																    <input type="number" name="quantite" value="1" min="1" max="10">
+																</div> #}
+										<div class="d-flex justify-content-center"> <button class="btn btn-secondary bg-danger quantity-button" data-plat-id="{{ plat.id }}" data-action="decrement">-</button>
+										<input name="quantite" value="1" min="1" max="10" class="quantity-input col-2 text-center" data-plat-id="{{ plat.id }}">
+										<button class="btn btn-secondary bg-success quantity-button" data-plat-id="{{ plat.id }}" data-action="increment">+</button>
+									</div>
+
+									{# vers modal #}
+									{# <button type="button" class=" d-block mt-5 btn btn-success mx-auto mb-3" data-bs-toggle="modal" data-bs-target="#modal{{ plat.id }}">Ajouter au panier
+											<i class="bi bi-basket"></i>
+									</button> #}
+									{# vers panier #}
+                                    <button type="submit" class=" d-block mt-5 btn btn-success mx-auto mb-3" href="{{ path('panier_ajouter', {id: plat.id})}}"> Ajouter au panier
+										<i class="bi bi-basket"></i>
+									</button>
+
+									{# test bouttons d'ajout #}
+									</form>
+
+								</div>
+							</div>
 						</div>
-					</div>
 
-                        <!-- /// LA MODAL D'AJOUT AU PANIER/// -->
-                        <div class="modal fade" id="modal{{ plat.id }}" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered modal-sm">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title rounded p-3">Ma commande</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body bg-secondary" aria-describedby="quantité">
-                                        <form action="ajout_au_panier.php" method="post" id="valid" novalidate>
-                                            <div class="dropdown">
-                                                <label for="quantité" class="lead text-white">Combien de {{ plat.libelle}} désirez-vous</label>
-                                                <input type="number" id="quantité" name="quantite" value="1" min="1" max="10">
-                                                <input type="hidden" name="id_plat" value="{{ plat.id }}">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Ajouter</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-					{# Si vous avez affiché 2 cartes, fermez la rangée actuelle et commencez une nouvelle rangée #}
-					{% if loop.index is even %}
-					</div>
-					<div class="row">
-					{% endif %}
-				{% endfor %}
-			</div>
-		</main>
-	</div>
-    	{% include "partials/footer.php" %}
+						<!-- /// LA MODAL D'AJOUT AU PANIER/// -->
+						{# <div class="modal fade" id="modal{{ plat.id }}" tabindex="-1">
+											                            <div class="modal-dialog modal-dialog-centered modal-sm">
+											                                <div class="modal-content">
+											                                    <div class="modal-header">
+											                                        <h5 class="modal-title rounded p-3">Ma commande</h5>
+											                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											                                    </div>
+											                                    <div class="modal-body bg-secondary" aria-describedby="quantité">
+											                                        <form action="ajout_au_panier.php" method="post" id="valid" novalidate>
+											                                            <div class="dropdown">
+											                                                <label for="quantité" class="lead text-white">Combien de {{ plat.libelle}} désirez-vous</label>
+											                                                <input type="number" id="quantité" name="quantite" value="1" min="1" max="10">
+											                                                <input type="hidden" name="id_plat" value="{{ plat.id }}">
+											                                            </div>
+											                                            <div class="modal-footer">
+											                                                <button type="submit" class="btn btn-primary">Ajouter</button>
+											                                            </div>
+											                                        </form>
+											                                    </div>
+											                                </div>
+											                            </div>
+											                        </div> #}
+						{# Si vous avez affiché 2 cartes, fermez la rangée actuelle et commencez une nouvelle rangée #}
+						{% if loop.index is even %}
+						</div>
+						<div class="row"> {% endif %}
+					{% endfor %}
+				</div>
+			</main>
+		</div>
+		{% include "partials/footer.php" %}
 
-{% endblock %}
+	{% endblock %}

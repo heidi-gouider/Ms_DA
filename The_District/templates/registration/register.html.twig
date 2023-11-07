@@ -18,10 +18,12 @@
 				{{ form_row(registrationForm.email, {'attr': {'class': 'custom-input'}}) }}
 			</div>
 			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.plainPassword, {'attr': {'class': 'custom-input'},
-            label: 'Password'
-        }) }}
+				{{ form_row(registrationForm.plainPassword.first, {'attr': {'class': 'custom-input'}}) }}
 			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.plainPassword.second, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+
 			<div class="col-md-6 mb-4">
 				{{ form_row(registrationForm.nom, {'attr': {'class': 'custom-input'}}) }}
 			</div>
