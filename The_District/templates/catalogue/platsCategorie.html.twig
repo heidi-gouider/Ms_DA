@@ -26,9 +26,9 @@
 							<div class="card-footer mt-2">
 								<form action="{{ path('panier_ajouter', {'id': plat.id}) }}" method="post">
 										<div class="d-flex justify-content-center"> 
-										<button class="btn btn-secondary bg-danger quantity-button" data-plat-id="{{ plat.id }}" data-action="decrement">-</button>
+										<button class="btn btn-secondary bg-danger quantity-button" href="{{ path('panier_retirer', {id: plat.id }) }}" data-plat-id="{{ plat.id }}" data-action="decrement">-</button>
 										<input name="quantite" value="1" min="1" max="10" class="quantity-input col-2 text-center" data-plat-id="{{ plat.id }}" type="number">
-										<button class="btn btn-secondary bg-success quantity-button" data-plat-id="{{ plat.id }}" data-action="increment">+</button>
+										<button class="btn btn-secondary bg-success quantity-button" href="{{ path('panier_ajouter', {id: plat.id }) }}" data-plat-id="{{ plat.id }}" data-action="increment">+</button>
 									</div>
 
 									{# vers panier #}

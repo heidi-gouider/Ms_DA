@@ -1,20 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanierController!{% endblock %}
+{% block title %}Panier
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/stagiaire/Bureau/Ms_DA/The_District/src/Controller/PanierController.php'|file_link(0) }}">src/Controller/PanierController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/stagiaire/Bureau/Ms_DA/The_District/templates/panier/index.html.twig'|file_link(0) }}">templates/panier/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+	<div class="contenu" style="background-image:url('{{ asset('IMG/fond/bg3.jpeg') }}')">
+		{# <h1 class="fst-italic text-center">Mon panier</h1> #}
+		<main class="container mt-5">
+			<div class="row">
+				<div class="col-8">
+                		<h2 class="fst-italic text-center text-white">Mon panier</h2>
+					<table class="table text-white" id="formulaire">
+						<thead>
+							<tr>
+								<th>Plat</th>
+								<th>Prix</th>
+								<th>Quantité</th>
+								<th>Total</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for element in data %}
+								<tr>
+									<td>{{ element.plat.libelle }}</td>
+									<td>{{ element.plat.prix }} €</td>
+									<td>{{ element.quantite }}</td>
+									<td>{{ element.quantite * element.plat.prix }} €</td>
+									<td>
+										<a href="{{ path('panier_retirer', {id: element.plat.id }) }}" class="btn btn-danger">-</a>
+										<a href="{{ path('panier_ajout', {id: element.plat.id }) }}" class="btn btn-success">+</a>
+										<a href="{{ path('panier_supprimer', {id: element.plat.id }) }}" class="btn btn-secondary">Suppr</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="5">Le panier est vide</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="3">Total</td>
+								<td colspan="1">
+									<b>{{ total }} €</b>
+								</td>
+								<td colspan="">
+									<a href="#" class="btn btn-secondary">Supprimer ma commande</a>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+                    <a href="{{ path('app_commande_ajout') }}" class="btn btn-primary">Valider ma commande</a>
+				</div>
+			</main>
+		</div>
+		{% include "partials/footer.php" %}
+	{% endblock %}
