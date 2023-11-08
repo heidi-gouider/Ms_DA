@@ -5,7 +5,8 @@ namespace App\Controller;
 use App\Entity\Plat;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+// use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType; 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,16 +17,33 @@ class PanierController extends AbstractController
     public function add(Plat $plat, SessionInterface $session, Request $request)
     {
 
-        $quantite = $request->request->get('quantite', 1); // Valeur par défaut 1 si non spécifiée
+        $quantite = $request->request->get('quantite'); 
         $action = $request->request->get('action');
+
+                // Effectue la logique de gestion de quantité
+        // if ($quantite < 1) {
+        //     $quantite = 1;
+        // }        
 
         if ($action === 'increment') {
             $quantite++;
         } elseif ($action === 'decrement' && $quantite > 1) {
             $quantite--;
-        }        
-        // Vérifiez et assurez-vous que $quantite est valide (un entier positif par exemple).
+        }
 
+
+        $form = $this->createFormBuilder()
+        ->add('quantite', IntegerType::class, [
+            'attr' => ['min' => 1, 'max' => 10], // Définis les valeurs minimales et maximales
+        ])
+        ->getForm();
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $quantite = $form->get('quantite')->getData();
+        // Traitement des données, y compris la quantité choisie
+    }
         // Obtenez le panier existant à partir de la session ou créez-en un nouveau.
         $panier = $session->get('panier', []);
 
